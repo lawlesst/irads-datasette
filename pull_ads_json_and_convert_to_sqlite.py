@@ -1,4 +1,4 @@
-import urllib
+import urllib.request
 import json
 import os
 import sqlite3
@@ -78,7 +78,7 @@ def insert_or_replace(conn, table, record):
 
 
 def parse_and_load(url, db):
-    data = json.load(urllib.urlopen(url))
+    data = json.load(urllib.request.urlopen(url))
     for ad in data:
         insert_or_replace(
             db,
